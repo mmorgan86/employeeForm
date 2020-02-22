@@ -1,0 +1,28 @@
+<template>
+  <div id="employeeForm">
+    <form>
+      <label>Name</label>
+      <input type="text" value="Name" v-model="" />
+      <label>Email</label>
+      <input type="text" value="Email" />
+      <button>Submit</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+    name: 'employee-form',
+    data() {
+        return {
+            employee: {
+                name: '',
+                email: ''
+            }
+        }
+    }
+};
+</script>
+
+<style>
+</style>
