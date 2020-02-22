@@ -22,7 +22,7 @@
             <button class="muted-button" @click="editing = null">Cancel</button>
           </td>
           <td v-else>
-            <button class="edit-button" @click="editMode(employee.id)">Edit</button>
+            <button class="edit-button" @click="editMode(employee)">Edit</button>
             <button class="danger-button" @click="$emit('delete:employee', employee.id)">Delete</button>
           </td>
         </tr>
@@ -43,8 +43,13 @@ export default {
     };
   },
   methods: {
-    editMode(id) {
-      this.editing = id;
+    editMode(employee) {
+      this.cachedEmployee = Object.assign({}, employee);
+      this.editing = employee.id;
+    },
+    cancelEdit(employee) {
+      Object.assign(employee, this.cachedEmployee);
+      this.editing = null;
     },
 
     editEmployee(employee) {
