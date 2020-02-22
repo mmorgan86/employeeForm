@@ -58,10 +58,8 @@ export default {
     deleteEmployee(id) {
       this.employees = this.employees.filter(employee => employee.id !== id);
     },
-    editEmployee(id, updatedEmployee) {
-      this.empoyees = this.employees.map(employee =>
-        employee.id === id ? updatedEmployee : employee
-      );
+    editEmployee(id) {
+      alert("editing");
     }
   }
 };

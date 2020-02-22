@@ -14,14 +14,10 @@
           </td>
           <td v-else>{{ employee.name }}</td>
           <td v-if="editing === employee.id">
-            <input type="text" v-model="employee.email" />
+            <input type="text" v-model="employee.edit" />
           </td>
           <td v-else>{{ employee.email }}</td>
-          <td v-if="editing === employee.id">
-            <button @click="editEmployee(employee)">Save</button>
-            <button class="muted-button" @click="editing = null">Cancel</button>
-          </td>
-          <td v-else>
+          <td>
             <button class="edit-button" @click="editMode(employee.id)">Edit</button>
             <button class="danger-button" @click="$emit('delete:employee', employee.id)">Delete</button>
           </td>

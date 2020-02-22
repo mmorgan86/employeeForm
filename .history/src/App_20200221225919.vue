@@ -60,8 +60,6 @@ export default {
     },
     editEmployee(id, updatedEmployee) {
       this.empoyees = this.employees.map(employee =>
-        employee.id === id ? updatedEmployee : employee
-      );
     }
   }
 };

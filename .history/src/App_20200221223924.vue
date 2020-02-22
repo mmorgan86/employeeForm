@@ -2,11 +2,7 @@
   <div id="app" class="small-container">
     <h1>Employees</h1>
     <employee-form @add:employee="addEmployee" />
-    <employee-table
-      :employees="employees"
-      @delete:employee="deleteEmployee"
-      @edit:employee="editEmployee"
-    />
+    <employee-table :employees="employees" />
   </div>
 </template>
 
@@ -54,14 +50,6 @@ export default {
       const newEmployee = { ...employee, id };
 
       this.employees = [...this.employees, newEmployee];
-    },
-    deleteEmployee(id) {
-      this.employees = this.employees.filter(employee => employee.id !== id);
-    },
-    editEmployee(id, updatedEmployee) {
-      this.empoyees = this.employees.map(employee =>
-        employee.id === id ? updatedEmployee : employee
-      );
     }
   }
 };
@@ -72,6 +60,13 @@ button {
   background: #009435;
   border: 1px solid #009435;
 }
+button .edit-button {
+  background-color: blue !important;
+}
+button.danger-button {
+  background-color: rgb(158, 23, 23) !important;
+}
+
 .small-container {
   max-width: 680px;
 }
